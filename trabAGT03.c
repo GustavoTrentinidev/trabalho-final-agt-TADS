@@ -2,10 +2,12 @@
 
 int a[50], b[50];
 int countA = 0, countB = 0;
+int c[100], countC = 0;
 
 int main(){
     int user_option = 0;
     while( user_option != 7){
+        countC = 0;
         printf("\nSelecione uma opcao: \n");
         printf("1 - Inserir valores em um dos conjuntos (A ou B): \n");
         printf("2 - Remocao de todos os valores de um dos conjuntos (A ou B): \n"); 
@@ -113,7 +115,6 @@ void cleanVector(char vetor_letra, int vetor[100], int count){
 }
 
 void joinVectors(){
-    int c[100], countC = 0;
     int i;
     for(i=0;i<countA;i++){
         c[countC] = a[i];
@@ -130,7 +131,6 @@ void joinVectors(){
 }
 
 void intersection(){
-    int c[100], countC = 0;
     int i, j;
     for (i=0; i<countA; i++){
         for(j=0; j<countB; j++){
@@ -148,7 +148,6 @@ void difference(){
     int value;
     printf("Selecione 1 para (A - B) \nSelecione 2 para (B - A): \n");
     scanf(" %d", &value);
-    int c[100], countC = 0;
     int i, j;
     int higherVector = 0;
     if (countA>countB){
