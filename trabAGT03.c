@@ -144,29 +144,26 @@ void intersection(){
     showVector('C',c,countC);
 }
 
+void calcDifferenceVector(int primeiro_vetor[50], int segundo_vetor[50], int count_PV, int count_SV){
+	int i, j;
+	for(i=0; i< count_PV; i++){	
+		if(!isValueInArray(primeiro_vetor[i],segundo_vetor,count_SV)){
+			c[countC] = primeiro_vetor[i];
+			countC++;
+		}
+	}
+	showVector('C',c,countC);
+}
+
 void difference(){
     int value;
     printf("Selecione 1 para (A - B) \nSelecione 2 para (B - A): \n");
     scanf(" %d", &value);
-    int i, j;
-    int higherVector = 0;
-    if (countA>countB){
-        higherVector = countA;
-    }else{
-        higherVector = countB;
-    }
-    for (i=0; i<higherVector; i++){
-        if(value == 1){
-            c[countC] = a[i] - b[i]; 
-        }else if (value == 2){
-            c[countC] = b[i] - a[i];
-        }
-        countC++;
-    }
-    if(value == 1){
+	if(value == 1){
         printf("\nResultado de A - B\n");
+        calcDifferenceVector(a,b,countA,countB);
     }else {
+    	calcDifferenceVector(b,a,countB,countA);
         printf("\nResultado de B - A\n");
     }
-    showVector('C',c,countC);
 }
